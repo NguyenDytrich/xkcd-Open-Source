@@ -16,7 +16,7 @@
 #import <TwitterKit/TwitterKit.h>
 
 static CGFloat const kComicViewControllerPadding = 10.0;
-static CGFloat const kBottomButtonSpacing = 15.0;
+static CGFloat const kBottomButtonSpacing = 25.0;
 static CGFloat const kBottomButtonPadding = 10.0;
 static CGFloat const kBottomButtonSize = 50.0;
 static CGFloat const kFavoritedButtonNonFavoriteAlpha = 0.3;
@@ -86,6 +86,11 @@ static CGFloat const kFavoritedButtonNonFavoriteAlpha = 0.3;
     [self.favoriteButton addTarget:self action:@selector(toggleComicFavorited) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.favoriteButton];
     
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.shareButton.adjustsImageWhenHighlighted = NO;
+    [self.shareButton setImage:[ThemeManager shareImage] forState:UIControlStateNormal];
+    [self.view addSubview:self.shareButton];
+    
     self.randomComicButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.randomComicButton.adjustsImageWhenHighlighted = NO;
     self.randomComicButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
@@ -138,12 +143,11 @@ static CGFloat const kFavoritedButtonNonFavoriteAlpha = 0.3;
     float spacing = (width - (kBottomButtonSize * buttonCount)) / (buttonCount);
     float padding = spacing / 2;
     
-    [self.prevButton anchorBottomLeftWithLeftPadding:padding bottomPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
-    [self.favoriteButton alignToTheRightOf:self.facebookShareButton matchingCenterWithLeftPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
-    [self.randomComicButton alignToTheRightOf:self.favoriteButton matchingCenterWithLeftPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
-    [self.facebookShareButton alignToTheRightOf:self.prevButton matchingCenterWithLeftPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
-    [self.twitterShareButton alignToTheRightOf:self.randomComicButton matchingCenterWithLeftPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
-    [self.nextButton anchorBottomRightWithRightPadding:padding bottomPadding:spacing width:kBottomButtonSize height:kBottomButtonSize];
+    [self.prevButton anchorBottomLeftWithLeftPadding:kBottomButtonPadding bottomPadding:kBottomButtonPadding width:kBottomButtonSize height:kBottomButtonSize];
+    [self.favoriteButton anchorBottomCenterWithBottomPadding:kBottomButtonPadding width:kBottomButtonSize height:kBottomButtonSize];
+    [self.shareButton alignToTheLeftOf:self.favoriteButton matchingCenterWithRightPadding:kBottomButtonSpacing width:kBottomButtonSize height:kBottomButtonSize];
+    [self.randomComicButton alignToTheRightOf:self.favoriteButton matchingCenterWithLeftPadding:kBottomButtonSpacing width:kBottomButtonSize height:kBottomButtonSize];
+    [self.nextButton anchorBottomRightWithRightPadding:kBottomButtonPadding bottomPadding:kBottomButtonPadding width:kBottomButtonSize height:kBottomButtonSize];
     
     [self.comicImageView anchorTopCenterWithTopPadding:kComicViewControllerPadding width:self.view.width - (kComicViewControllerPadding * 2) height:self.favoriteButton.yMin - (2 * kComicViewControllerPadding)];
 

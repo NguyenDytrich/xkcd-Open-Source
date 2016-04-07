@@ -37,6 +37,7 @@
 @property (nonatomic, strong) AltView *altView;
 @property (nonatomic, strong) UIButton *favoriteButton;
 @property (nonatomic, strong) UIButton *randomComicButton;
+@property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIButton *prevButton;
 @property (nonatomic, strong) UIButton *nextButton;
 @property (nonatomic, strong) UIButton *facebookShareButton;

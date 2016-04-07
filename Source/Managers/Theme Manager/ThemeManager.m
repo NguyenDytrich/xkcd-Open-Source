@@ -72,6 +72,10 @@
     return [UIImage imageNamed:kTwitterImageName];
 }
 
++ (UIImage *)shareImage {
+    return [UIImage imageNamed:kShareImageName];
+}
+
 
 #pragma mark - CALayer schtuff
 
