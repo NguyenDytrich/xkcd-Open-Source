@@ -12,6 +12,7 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import "Comic.h"
 #import "AltView.h"
+#import "ShareView.h"
 
 @class ComicViewController;
 
@@ -35,6 +36,7 @@
 @property (nonatomic, strong) UIScrollView *containerView;
 @property (nonatomic, strong) UIImageView *comicImageView;
 @property (nonatomic, strong) AltView *altView;
+@property (nonatomic, strong) ShareView *shareView;
 @property (nonatomic, strong) UIButton *favoriteButton;
 @property (nonatomic, strong) UIButton *randomComicButton;
 @property (nonatomic, strong) UIButton *shareButton;

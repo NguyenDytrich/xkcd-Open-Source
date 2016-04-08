@@ -38,6 +38,7 @@
 		27EE4A601B07BDAA001454A3 /* ComicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EE4A5F1B07BDAA001454A3 /* ComicViewController.m */; };
 		27F653681B154C5C00F3377D /* silent.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 27F653671B154C5C00F3377D /* silent.m4a */; };
 		70F7092809A3BE7A7BB3041B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A2B0C2ACB019A4B019EC89 /* libPods.a */; };
+		81A7A4F31CB6DAA300E49F5B /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A7A4F21CB6DAA300E49F5B /* ShareView.m */; };
 		DE6143AD0449792A37D3B29D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CC68C4D10E2143071F67E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,8 @@
 		27F653671B154C5C00F3377D /* silent.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = silent.m4a; sourceTree = "<group>"; };
 		4484B4BA0184CB6D6523840B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		673CC68C4D10E2143071F67E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A7A4F21CB6DAA300E49F5B /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareView.m; path = "Share View/ShareView.m"; sourceTree = "<group>"; };
+		81A7A4F41CB6DB4E00E49F5B /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareView.h; path = "Share View/ShareView.h"; sourceTree = "<group>"; };
 		F23446BA06D19E2DB13831EC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +203,7 @@
 		2714CCD61B05668900ADF009 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				81A7A4FB1CB8182600E49F5B /* Share */,
 				27EE4A5C1B07BD96001454A3 /* Comic List */,
 				27EE4A5D1B07BD9C001454A3 /* Comic */,
 			);
@@ -279,6 +283,7 @@
 		277317121B06E3D300ED7978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81A7A4F01CB6D9D100E49F5B /* Share View */,
 				270B57481B07F27700651787 /* Alt View */,
 				27EE4A5B1B07BD8D001454A3 /* Comic Cell */,
 				277317131B06E3D900ED7978 /* Loading View */,
@@ -389,6 +394,22 @@
 				09A2B0C2ACB019A4B019EC89 /* libPods.a */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		81A7A4F01CB6D9D100E49F5B /* Share View */ = {
+			isa = PBXGroup;
+			children = (
+				81A7A4F41CB6DB4E00E49F5B /* ShareView.h */,
+				81A7A4F21CB6DAA300E49F5B /* ShareView.m */,
+			);
+			name = "Share View";
+			sourceTree = "<group>";
+		};
+		81A7A4FB1CB8182600E49F5B /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Share;
 			sourceTree = "<group>";
 		};
 		92D197D67863ECFFF37B8726 /* Pods */ = {
@@ -640,6 +661,7 @@
 				277316F71B056A6000ED7978 /* Comic.m in Sources */,
 				2714CCBB1B05667400ADF009 /* AppDelegate.m in Sources */,
 				27AE1AD41B08CFE6002D5280 /* ComicListFlowLayout.m in Sources */,
+				81A7A4F31CB6DAA300E49F5B /* ShareView.m in Sources */,
 				277317071B05955300ED7978 /* ComicCell.m in Sources */,
 				2714CCB81B05667400ADF009 /* main.m in Sources */,
 				277317161B06E3E600ED7978 /* LoadingView.m in Sources */,
