@@ -16,10 +16,9 @@ static CGFloat const kButtonSize = 50.0;
 
 @implementation ShareView
 
-- (instancetype)initWithDelegate:(UIViewController<FBSDKSharingDelegate> *)comicVC {
+
+- (instancetype)initViewController:(UIViewController *)comicVC {
     self = [super init];
-    
-    self.comicVC = comicVC;
     
     [self setupShareView];
     
@@ -43,6 +42,10 @@ static CGFloat const kButtonSize = 50.0;
     self.shareLabel.numberOfLines = 0;
     self.shareLabel.text = @"Share";
     [self.containerView addSubview:self.shareLabel];
+    
+    self.permalinkTextView = [UITextView new];
+    self.permalinkTextView.editable = NO;
+    [self.containerView addSubview:self.permalinkTextView];
     
     self.facebookShareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.facebookShareButton setImage:[ThemeManager facebookImage] forState:UIControlStateNormal];
@@ -68,6 +71,8 @@ static CGFloat const kButtonSize = 50.0;
     [self.shareLabel sizeToFit];
     [self.shareLabel anchorTopCenterWithTopPadding:padding width:width height:20];
     
+    [self.permalinkTextView alignUnder:self.shareLabel matchingCenterWithTopPadding:10.0 width:width height:20];
+    
     [self.facebookShareButton anchorBottomCenterWithBottomPadding:15 width:kButtonSize height:kButtonSize];
     [self.twitterShareButton alignToTheLeftOf:self.facebookShareButton matchingCenterWithRightPadding:15 width:kButtonSize height:kButtonSize ];
 }
@@ -78,6 +83,7 @@ static CGFloat const kButtonSize = 50.0;
     [superview addSubview:self];
     
     self.comicImage = comicImage;
+    self.permalinkTextView.text = [[self.comic generateShareURL] absoluteString];
     
     [self layoutFacade];
     self.isVisible = YES;
@@ -104,7 +110,7 @@ static CGFloat const kButtonSize = 50.0;
     shareLinkContent.contentTitle = self.comic.safeTitle;
     shareLinkContent.contentURL = [self.comic generateShareURL];
     
-    [FBSDKShareDialog showFromViewController:self.comicVC withContent:shareLinkContent delegate:self.comicVC];
+    [FBSDKShareDialog showFromViewController:self.comicVC withContent:shareLinkContent delegate:self];
 }
 
 - (void)sharerDidCancel:(id<FBSDKSharing>)sharer {

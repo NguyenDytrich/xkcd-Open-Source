@@ -25,7 +25,7 @@
 
 @end
 
-@interface ComicViewController : UIViewController <UIScrollViewDelegate, FBSDKSharingDelegate>
+@interface ComicViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic) id<ComicViewControllerDelegate> delegate;
 

@@ -76,7 +76,6 @@
     return [UIImage imageNamed:kShareImageName];
 }
 
-
 #pragma mark - CALayer schtuff
 
 + (void)addBorderToLayer:(CALayer *)layer radius:(CGFloat)radius color:(UIColor *)color {

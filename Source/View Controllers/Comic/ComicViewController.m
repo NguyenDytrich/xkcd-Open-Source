@@ -123,7 +123,7 @@ static CGFloat const kFavoritedButtonNonFavoriteAlpha = 0.3;
     self.altView = [AltView new];
     self.altView.alpha = 0.0;
     
-    self.shareView = [[ShareView alloc] initWithDelegate:self];
+    self.shareView = [[ShareView alloc] initViewController:self];
     self.shareView.alpha = 0.0;
 }
 

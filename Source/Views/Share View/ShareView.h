@@ -10,22 +10,22 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import "Comic.h"
 
-@interface ShareView : UIView
+@interface ShareView : UIView<FBSDKSharingDelegate>
 
 @property (nonatomic, strong) Comic *comic;
-@property (nonatomic, strong) UIViewController<FBSDKSharingDelegate> *comicVC;
+@property (nonatomic, strong) UIViewController *comicVC;
 @property (nonatomic, strong) UIImage *comicImage;
 
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UILabel *shareLabel;
-@property (nonatomic, strong) UILabel *permaLinkLabel;
+@property (nonatomic, strong) UITextView *permalinkTextView;
 
 @property (nonatomic, strong) UIButton *facebookShareButton;
 @property (nonatomic, strong) UIButton *twitterShareButton;
 
 @property (nonatomic) BOOL isVisible;
 
-- (instancetype)initWithDelegate:(UIViewController<FBSDKSharingDelegate> *)comicVC;
+- (instancetype)initViewController:(UIViewController *)comicVC;
 - (void)layoutFacade;
 - (void)showInView:(UIView *)superview comicImage:(UIImage *)comicImage;
 - (void)dismiss;
