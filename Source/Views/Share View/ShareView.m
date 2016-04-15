@@ -47,6 +47,11 @@ static CGFloat const kButtonSize = 50.0;
     self.permalinkTextView.editable = NO;
     [self.containerView addSubview:self.permalinkTextView];
     
+    self.cPermaLinkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.cPermaLinkButton setImage:[ThemeManager copyImage] forState:UIControlStateNormal];
+    [self.cPermaLinkButton addTarget:self action:@selector(copyPermalink) forControlEvents: UIControlEventTouchUpInside];
+    [self.containerView addSubview:self.cPermaLinkButton];
+    
     self.facebookShareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.facebookShareButton setImage:[ThemeManager facebookImage] forState:UIControlStateNormal];
     [self.facebookShareButton addTarget:self action:@selector(handleFacebookShare) forControlEvents:UIControlEventTouchUpInside];
@@ -75,6 +80,7 @@ static CGFloat const kButtonSize = 50.0;
     
     [self.facebookShareButton anchorBottomCenterWithBottomPadding:15 width:kButtonSize height:kButtonSize];
     [self.twitterShareButton alignToTheLeftOf:self.facebookShareButton matchingCenterWithRightPadding:15 width:kButtonSize height:kButtonSize ];
+    [self.cPermaLinkButton alignToTheRightOf:self.facebookShareButton matchingCenterWithLeftPadding:15 width:kButtonSize height:kButtonSize];
 }
 
 #pragma mark - Showing and hiding
@@ -101,6 +107,14 @@ static CGFloat const kButtonSize = 50.0;
         
         self.isVisible = NO;
     }];
+}
+
+#pragma mark - Copy Permalink
+
+- (void)copyPermalink {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.persistent = YES;
+    [pasteboard setString: self.permalinkTextView.text];
 }
 
 #pragma mark - Facebook Sharing

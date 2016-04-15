@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "share_small.png",
+      "filename" : "copy_small.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "share_big.png",
+      "filename" : "copy_big.png",
       "scale" : "3x"
     }
   ],

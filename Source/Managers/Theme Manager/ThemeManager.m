@@ -76,6 +76,10 @@
     return [UIImage imageNamed:kShareImageName];
 }
 
++ (UIImage *)copyImage {
+    return [UIImage imageNamed:kCopyImageName];
+}
+
 #pragma mark - CALayer schtuff
 
 + (void)addBorderToLayer:(CALayer *)layer radius:(CGFloat)radius color:(UIColor *)color {

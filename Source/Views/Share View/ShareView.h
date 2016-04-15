@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) UIButton *facebookShareButton;
 @property (nonatomic, strong) UIButton *twitterShareButton;
+@property (nonatomic, strong) UIButton *cPermaLinkButton;
 
 @property (nonatomic) BOOL isVisible;
 
