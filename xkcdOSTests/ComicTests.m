@@ -41,6 +41,7 @@
     XCTAssert([comicFromEmptyDict.year isEqualToString:@""]);
     XCTAssertEqual(comicFromEmptyDict.aspectRatio, kDefaultAspectRatio);
     XCTAssertFalse(comicFromEmptyDict.viewed);
+    XCTAssertFalse(comicFromEmptyDict.isInteractive);
     XCTAssert([comicFromEmptyDict.formattedDateString isEqualToString:@""]);
 }
 
@@ -59,6 +60,7 @@
     XCTAssert([comicFromNilDict.day isEqualToString:@""]);
     XCTAssert([comicFromNilDict.month isEqualToString:@""]);
     XCTAssert([comicFromNilDict.year isEqualToString:@""]);
+    XCTAssertFalse(comicFromNilDict.isInteractive);
     XCTAssertEqual(comicFromNilDict.aspectRatio, kDefaultAspectRatio);
     XCTAssertFalse(comicFromNilDict.viewed);
     XCTAssert([comicFromNilDict.formattedDateString isEqualToString:@""]);
@@ -76,6 +78,7 @@
     NSString *month = @"11";
     NSString *year = @"1988";
     CGFloat aspectRatio = 1.5;
+    BOOL isInteractive = @"true";
 
     NSDictionary *comicDict = @{
                                 kNumKey: comicID,
@@ -89,8 +92,23 @@
                                 kYearKey: year,
                                 kAspectRatioKey: @(aspectRatio)
                                 };
+    
+    NSDictionary *interactiveComicDict = @{
+                                           kNumKey: comicID,
+                                           kTitleKey: title,
+                                           kSafeTitleKey: safeTitle,
+                                           kAltKey: alt,
+                                           kTranscriptKey: transcript,
+                                           kImageURLStringKey: imageURLString,
+                                           kDayKey: day,
+                                           kMonthKey: month,
+                                           kYearKey: year,
+                                           kAspectRatioKey: @(aspectRatio),
+                                           kInteractiveKey: @(isInteractive)
+                                           };
 
     Comic *comic = [Comic comicFromDictionary:comicDict];
+    Comic *interactiveComic = [Comic comicFromDictionary:interactiveComicDict];
 
     XCTAssertNotNil(comic);
     XCTAssertEqual(comic.num, num);
@@ -105,7 +123,25 @@
     XCTAssert([comic.year isEqualToString:year]);
     XCTAssertEqual(comic.aspectRatio, aspectRatio);
     XCTAssertFalse(comic.viewed);
+    XCTAssertFalse(comic.isInteractive);
     XCTAssert([comic.formattedDateString isEqualToString:@"November 10, 1988"]);
+    
+    XCTAssertNotNil(interactiveComic);
+    XCTAssertEqual(interactiveComic.num, num);
+    XCTAssert([interactiveComic.comicID isEqualToString:[comicID stringValue]]);
+    XCTAssert([interactiveComic.title isEqualToString:title]);
+    XCTAssert([interactiveComic.safeTitle isEqualToString:safeTitle]);
+    XCTAssert([interactiveComic.alt isEqualToString:alt]);
+    XCTAssert([interactiveComic.transcript isEqualToString:transcript]);
+    XCTAssert([interactiveComic.imageURLString isEqualToString:imageURLString]);
+    XCTAssert([interactiveComic.day isEqualToString:day]);
+    XCTAssert([interactiveComic.month isEqualToString:month]);
+    XCTAssert([interactiveComic.year isEqualToString:year]);
+    XCTAssertEqual(interactiveComic.aspectRatio, aspectRatio);
+    XCTAssertFalse(interactiveComic.viewed);
+    XCTAssertFalse(interactiveComic.isInteractive);
+    XCTAssert([interactiveComic.formattedDateString isEqualToString:@"November 10, 1988"]);
+    XCTAssertTrue(interactiveComic.isInteractive);
 }
 
 - (void)testGenerateURLString {

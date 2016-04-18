@@ -31,6 +31,7 @@
     self.month = dictionary[kMonthKey] ?: @"";
     self.year = dictionary[kYearKey] ?: @"";
     self.aspectRatio = dictionary[kAspectRatioKey] ? [dictionary[kAspectRatioKey] floatValue] : kDefaultAspectRatio;
+    self.isInteractive = dictionary[kInteractiveKey] ?: NO;
     self.viewed = NO;
     self.favorite = NO;
 
@@ -69,5 +70,7 @@
              kAspectRatioKey: @(rand)
              };
 }
+
+//TODO: Test utilities for interactive comics
 
 @end

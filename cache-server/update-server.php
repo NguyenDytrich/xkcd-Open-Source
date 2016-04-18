@@ -5,6 +5,9 @@ require __DIR__ . '/vendor/autoload.php';
 // load configuration
 require('config.inc.php');
 
+// load known interactives
+require('known-interactives.php');
+
 // set up our database connection
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
@@ -200,7 +203,8 @@ function attachImageAttributesToComic($comic) {
 		$img = @imagecreatefromgif($comic->img);
 	}
 	else {
-		throw new Exception('A comic contains an image in a format that is not supported.');
+    // Instead of throwing an exception, set interactive to TRUE
+    $comic->is_interactive = true;
 	}
 
 	// if we didn't get an image, we suck
