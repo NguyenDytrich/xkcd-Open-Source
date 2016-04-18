@@ -139,7 +139,7 @@
     XCTAssert([interactiveComic.year isEqualToString:year]);
     XCTAssertEqual(interactiveComic.aspectRatio, aspectRatio);
     XCTAssertFalse(interactiveComic.viewed);
-    XCTAssertFalse(interactiveComic.isInteractive);
+    XCTAssertTrue(interactiveComic.isInteractive);
     XCTAssert([interactiveComic.formattedDateString isEqualToString:@"November 10, 1988"]);
     XCTAssertTrue(interactiveComic.isInteractive);
 }
